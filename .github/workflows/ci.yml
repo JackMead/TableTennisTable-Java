@@ -1,0 +1,19 @@
+name: Table Tennis CI
+on:
+    push:
+        paths-ignore:
+            - README.md
+    pull_request:
+        paths-ignore:
+            - README.md
+
+jobs:
+  test:
+    name: Test
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Build image
+      run: docker build --tag testapp --target test .
+    - name: Run the tests
+      run: docker run --env-file .env testapp

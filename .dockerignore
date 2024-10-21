@@ -1,0 +1,9 @@
+.env
+.gradle
+.devcontainer
+.vscode
+.github
+*.md
+.gitignore
+.gitattributes
+app/build
